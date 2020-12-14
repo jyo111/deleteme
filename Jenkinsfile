@@ -4,6 +4,11 @@ pipeline {
         maven 'maven-3'
     }
     stages {
+        stage('SCM checkout') {
+            steps {
+                git 'https://github.com/jyo111/deleteme.git'
+            }
+        }
         stage('compile-package') {
             steps {
                 sh 'mvn clean package'
