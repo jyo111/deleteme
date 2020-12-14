@@ -1,17 +1,9 @@
 pipeline {
-    agent any
-    tools {
-        maven 'maven-3'
-    }
+    agent any    
     stages {
         stage('SCM checkout') {
             steps {
                 git 'https://github.com/jyo111/deleteme.git'
-            }
-        }
-        stage('compile-package') {
-            steps {
-                sh 'mvn clean package'
             }
         }
         stage('slack notification') {
